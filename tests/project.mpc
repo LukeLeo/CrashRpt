@@ -1,0 +1,63 @@
+project(Tests):build_files{
+    exename=Tests
+    pch_header=stdafx.h
+    pch_source=stdafx.cpp
+
+    includes += ..\include
+    includes += ..\thirdparty\wtl
+    includes += ..\reporting\crashrpt
+    includes += ..\reporting\crashsender
+    includes += ..\thirdparty\tinyxml
+    includes += ..\thirdparty\zlib
+    includes += ..\thirdparty\minizip
+    includes += ..\thirdparty\libpng
+
+    after += CrashRpt CrashRptProbe libpng zlib minizip
+    libs += CrashRpt1403 CrashRptProbe1403 libpng zlib minizip
+    lit_libs += dnsapi wininet WS2_32 Rpcrt4 version psapi
+
+    specific(prop:microsoft){
+        unicode=1
+        exeout = ..\$(Platformname)\bin
+        libout = ..\$(Platformname)\lib
+        libpaths+=..\$(Platformname)\lib
+    }
+
+    Source_Files{
+        ..\reporting\crashrpt\Utility.cpp
+        *.cpp
+    }
+}
+
+project(Testss):build_files{
+    exename=Testss
+    pch_header=stdafx.h
+    pch_source=stdafx.cpp
+
+    includes += ..\include
+    includes += ..\thirdparty\wtl
+    includes += ..\reporting\crashrpt
+    includes += ..\reporting\crashsender
+    includes += ..\thirdparty\tinyxml
+    includes += ..\thirdparty\zlib
+    includes += ..\thirdparty\minizip
+    includes += ..\thirdparty\libpng
+
+    //after += CrashRpt1403s CrashRptProbe1403s libpngs zlibs minizips
+    libs += CrashRpt1403s CrashRptProbe1403s libpngs zlibs minizips
+    lit_libs += dnsapi wininet WS2_32 Rpcrt4 version psapi
+
+    specific(prop:microsoft){
+        unicode=1
+        exeout = ..\$(Platformname)\bin
+        libout = ..\$(Platformname)\lib
+        libpaths+=..\$(Platformname)\lib
+        Debug::runtime_library = 1
+        Release::runtime_library = 0
+    }
+
+    Source_Files{
+        ..\reporting\crashrpt\Utility.cpp
+        *.cpp
+    }
+}

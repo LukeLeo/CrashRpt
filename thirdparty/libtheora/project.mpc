@@ -1,0 +1,63 @@
+project(libtheora):build_files{
+    staticname=libtheora
+
+    includes += .\include
+    includes += ..\libogg\include
+    includes += .\lib
+    includes += ..\..\..\..\..\..\core\ogg\libogg\include
+
+    specific(prop:microsoft){
+        encoding="gb2312"
+        type_is_static=1
+        UseOfMFC=0
+        Unicode=1
+        libout=..\..\$(PlatformName)\lib
+        warning_level=4
+        defines+=_CRT_SECURE_NO_DEPRECATE
+        Debug::runtime_library = 3
+        Release::runtime_library = 2
+    }
+
+    Header_Files{
+        .\include\theora\*.h
+        .\lib\*.h
+        .\lib\x86_vc\*.h
+    }
+
+    Source_Files{
+        .\lib\*.c
+        .\lib\x86_vc\*.c
+    }
+}
+
+project(libtheoras):build_files{
+    staticname=libtheoras
+
+    includes += .\include
+    includes += ..\libogg\include
+    includes += .\lib
+    includes += ..\..\..\..\..\..\core\ogg\libogg\include
+
+    specific(prop:microsoft){
+        encoding="gb2312"
+        type_is_static=1
+        UseOfMFC=0
+        Unicode=1
+        libout=..\..\$(PlatformName)\lib
+        warning_level=4
+        defines+=_CRT_SECURE_NO_DEPRECATE
+        Debug::runtime_library = 1
+        Release::runtime_library = 0
+    }
+
+    Header_Files{
+        .\include\theora\*.h
+        .\lib\*.h
+        .\lib\x86_vc\*.h
+    }
+
+    Source_Files{
+        .\lib\*.c
+        .\lib\x86_vc\*.c
+    }
+}

@@ -1,0 +1,40 @@
+project(ConsoleDemo):build_files{
+    exename=ConsoleDemo
+
+    includes += ..\..\include
+
+    //after += CrashRpt1403
+    libs += CrashRpt1403
+    lit_libs+= dbghelp
+
+    specific(prop:microsoft){
+        postbuild+=copy $(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll $(OutDir)
+        unicode=1
+        exeout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        libpaths+=..\..\$(Platformname)\lib
+        Debug::exe_ext=_debug.exe
+    }
+}
+
+project(ConsoleDemos):build_files{
+    exename=ConsoleDemos
+
+    includes += ..\..\include
+
+    //after += CrashRpt1403s
+    libs += CrashRpt1403s
+    lit_libs+= dbghelp
+
+    specific(prop:microsoft){
+        postbuild+=copy $(SolutionDir)thirdparty\dbghelp\bin\dbghelp.dll $(OutDir)
+        unicode=1
+        exeout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        libpaths+=..\..\$(Platformname)\lib
+        Debug::exe_ext=_debug.exe
+        Debug::runtime_library = 1
+        Release::runtime_library = 0
+    }
+}
+

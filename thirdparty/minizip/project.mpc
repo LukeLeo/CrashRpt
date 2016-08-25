@@ -1,0 +1,34 @@
+project(minizip):build_files{
+    staticname=minizip
+
+    includes += ..\zlib
+    specific(prop:microsoft){
+        encoding="gb2312"
+        type_is_static=1
+        UseOfMFC=0
+        Unicode=1
+        libout=..\..\$(PlatformName)\lib
+        warning_level=4
+        defines+=_CRT_SECURE_NO_DEPRECATE
+        Debug::runtime_library = 3
+        Release::runtime_library = 2
+    }
+}
+
+project(minizips):build_files{
+    staticname=minizips
+
+    includes += ..\zlib
+    specific(prop:microsoft){
+        encoding="gb2312"
+        type_is_static=1
+        UseOfMFC=0
+        Unicode=1
+        libout=..\..\$(PlatformName)\lib
+        warning_level=4
+        defines+=_CRT_SECURE_NO_DEPRECATE
+        Debug::runtime_library = 1
+        Release::runtime_library = 0
+    }
+}
+

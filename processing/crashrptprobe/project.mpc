@@ -1,0 +1,85 @@
+project(CrashRptProbe1403):build_files{
+    sharedname=CrashRptProbe1403
+    pch_header=StdAfx.h
+    pch_source=StdAfx.cpp
+
+    includes += ..\..\include
+    includes += ..\..\reporting\CrashRpt
+    includes += ..\..\reporting\CrashSender
+    includes += ..\..\thirdparty\tinyxml
+    includes += ..\..\thirdparty\minizip
+    includes += ..\..\thirdparty\zlib
+    includes += ..\..\thirdparty\dbghelp\include
+    includes += ..\..\thirdparty\wtl
+
+    lit_libs+= psapi dbghelp Rpcrt4 version
+    after += tinyxml minizip zlib
+    libs += tinyxml minizip zlib
+
+    specific(prop:microsoft){
+        unicode=1
+        defines += CRASHRPTPROBE_EXPORTS
+        dllout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        libpaths+=..\..\$(Platformname)\lib
+        ModuleDefinitionFile=CrashRptProbe.def
+    }
+    
+    Source_Files{
+        ..\..\reporting\crashrpt\Utility.cpp
+        *.cpp
+        no_pch=1
+        ..\..\reporting\crashsender\md5.cpp
+    }
+
+    Header_Files{
+        ..\..\reporting\crashsender\md5.h
+        ..\..\reporting\crashrpt\Utility.h
+        ..\..\include\CrashRptProbe.h
+        *.h
+    }
+}
+
+project(CrashRptProbe1403s):build_files{
+    sharedname=CrashRptProbe1403s
+    pch_header=StdAfx.h
+    pch_source=StdAfx.cpp
+
+    includes += ..\..\include
+    includes += ..\..\reporting\CrashRpt
+    includes += ..\..\reporting\CrashSender
+    includes += ..\..\thirdparty\tinyxml
+    includes += ..\..\thirdparty\minizip
+    includes += ..\..\thirdparty\zlib
+    includes += ..\..\thirdparty\dbghelp\include
+    includes += ..\..\thirdparty\wtl
+
+    lit_libs+= psapi dbghelp Rpcrt4 version
+    after += tinyxmls minizips zlibs
+    libs += tinyxmls minizips zlibs
+
+    specific(prop:microsoft){
+        unicode=1
+        defines += CRASHRPTPROBE_EXPORTS
+        dllout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        libpaths+=..\..\$(Platformname)\lib
+        ModuleDefinitionFile=CrashRptProbe.def
+        Debug::runtime_library = 1
+        Release::runtime_library = 0
+    }
+    
+    Source_Files{
+        ..\..\reporting\crashrpt\Utility.cpp
+        *.cpp
+        no_pch=1
+        ..\..\reporting\crashsender\md5.cpp
+    }
+
+    Header_Files{
+        ..\..\reporting\crashsender\md5.h
+        ..\..\reporting\crashrpt\Utility.h
+        ..\..\include\CrashRptProbe.h
+        *.h
+    }
+}

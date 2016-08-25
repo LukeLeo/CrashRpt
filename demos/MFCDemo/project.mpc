@@ -1,0 +1,46 @@
+project(MFCDemo):mfc,build_files{
+    exename=MFCDemo
+    pch_header=stdafx.h
+    pch_source=stdafx.cpp
+
+    includes += ..\..\include
+
+    after += CrashRpt
+    libs += CrashRpt1403
+
+    specific(prop:microsoft){
+        encoding="gb2312"
+        UseOfMFC=2
+        unicode=1
+        exeout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        libpaths+=..\..\$(Platformname)\lib
+        Release::optimize=0
+        Release::GenerateDebugInformation=true
+        Release::debug_format=3
+    }
+}
+
+project(MFCDemos):lmxmfcs,build_files{
+    exename=MFCDemos
+    pch_header=stdafx.h
+    pch_source=stdafx.cpp
+
+    includes += ..\..\include
+
+    //after += CrashRpt
+    libs += CrashRpt1403s
+
+    specific(prop:microsoft){
+        unicode=1
+        exeout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        libpaths+=..\..\$(Platformname)\lib
+        Release::optimize=0
+        Release::GenerateDebugInformation=true
+        Release::debug_format=3
+        Debug::runtime_library = 1
+        Release::runtime_library = 0
+    }
+}
+

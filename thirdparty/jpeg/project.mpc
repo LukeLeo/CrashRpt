@@ -1,0 +1,173 @@
+project(libjpeg):build_files{
+    staticname=libjpeg
+
+    includes += .\include
+    specific(prop:microsoft){
+        encoding="gb2312"
+        type_is_static=1
+        UseOfMFC=0
+        Unicode=1
+        defines+=_CRT_SECURE_NO_DEPRECATE
+        libout=..\..\$(PlatformName)\lib
+        warning_level=4
+        Debug::runtime_library = 3
+        Release::runtime_library = 2
+    }
+
+    Header_Files{
+        .\Jmorecfg.h
+        .\Jpegint.h
+        .\Jpeglib.h
+        .\Jconfig.h
+        .\Jdct.h
+        .\Jdhuff.h
+        .\Jversion.h
+        .\Jchuff.h
+        .\Jerror.h
+        .\Jinclude.h
+    }
+
+    Source_Files{
+        .\jaricom.c
+        .\Jcapimin.c
+        .\Jcapistd.c
+        .\jcarith.c
+        .\Jccoefct.c
+        .\Jccolor.c
+        .\Jcdctmgr.c
+        .\Jchuff.c
+        .\Jquant1.c
+        .\Jcinit.c
+        .\Jcmainct.c
+        .\Jcmarker.c
+        .\Jcmaster.c
+        .\Jcomapi.c
+        .\Jquant2.c
+        .\Jcparam.c
+        .\Jcprepct.c
+        .\Jcsample.c
+        .\Jctrans.c
+        .\Jdapimin.c
+        .\Jdapistd.c
+        .\jdarith.c
+        .\Jdatadst.c
+        .\Jdatasrc.c
+        .\Jdcoefct.c
+        .\Jdcolor.c
+        .\Jutils.c
+        .\Jddctmgr.c
+        .\Jdhuff.c
+        .\Jdinput.c
+        .\Jdmainct.c
+        .\Jdmarker.c
+        .\Jdmaster.c
+        .\Jdmerge.c
+        .\Jdpostct.c
+        .\Jdsample.c
+        .\Jdtrans.c
+        .\Jerror.c
+        .\Jfdctflt.c
+        .\Jfdctfst.c
+        .\Jfdctint.c
+        .\Jidctflt.c
+        .\Jidctfst.c
+        .\Jidctint.c
+        .\Jmemmgr.c
+        .\Jmemnobs.c
+    }
+}
+
+project(libjpegs):build_files{
+    staticname=libjpegs
+
+    includes += .\include
+    specific(prop:microsoft){
+        encoding="gb2312"
+        type_is_static=1
+        UseOfMFC=0
+        Unicode=1
+        defines+=_CRT_SECURE_NO_DEPRECATE
+        libout=..\..\$(PlatformName)\lib
+        warning_level=4
+        Debug::runtime_library = 1
+        Release::runtime_library = 0
+    }
+
+    Header_Files{
+        .\Jmorecfg.h
+        .\Jpegint.h
+        .\Jpeglib.h
+        .\Jconfig.h
+        .\Jdct.h
+        .\Jdhuff.h
+        .\Jversion.h
+        .\Jchuff.h
+        .\Jerror.h
+        .\Jinclude.h
+    }
+
+    Source_Files{
+        .\jaricom.c
+        .\Jcapimin.c
+        .\Jcapistd.c
+        .\jcarith.c
+        .\Jccoefct.c
+        .\Jccolor.c
+        .\Jcdctmgr.c
+        .\Jchuff.c
+        .\Jquant1.c
+        .\Jcinit.c
+        .\Jcmainct.c
+        .\Jcmarker.c
+        .\Jcmaster.c
+        .\Jcomapi.c
+        .\Jquant2.c
+        .\Jcparam.c
+        .\Jcprepct.c
+        .\Jcsample.c
+        .\Jctrans.c
+        .\Jdapimin.c
+        .\Jdapistd.c
+        .\jdarith.c
+        .\Jdatadst.c
+        .\Jdatasrc.c
+        .\Jdcoefct.c
+        .\Jdcolor.c
+        .\Jutils.c
+        .\Jddctmgr.c
+        .\Jdhuff.c
+        .\Jdinput.c
+        .\Jdmainct.c
+        .\Jdmarker.c
+        .\Jdmaster.c
+        .\Jdmerge.c
+        .\Jdpostct.c
+        .\Jdsample.c
+        .\Jdtrans.c
+        .\Jerror.c
+        .\Jfdctflt.c
+        .\Jfdctfst.c
+        .\Jfdctint.c
+        .\Jidctflt.c
+        .\Jidctfst.c
+        .\Jidctint.c
+        .\Jmemmgr.c
+        .\Jmemnobs.c
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,51 @@
+project(CrashRpt1403):build_files{
+    sharedname=CrashRpt1403
+    pch_header=StdAfx.h
+    pch_source=StdAfx.cpp
+
+    includes += ..\..\include
+    includes += ..\..\reporting\crashsender
+    includes += ..\..\thirdparty\tinyxml
+    includes += ..\..\thirdparty\zlib
+    includes += ..\..\thirdparty\libpng
+    includes += ..\..\thirdparty\wtl
+
+    lit_libs+= version Rpcrt4
+
+    specific(prop:microsoft){
+        unicode=1
+        dllout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        ModuleDefinitionFile=CrashRpt.def
+        Release::optimize=0
+        Release::GenerateDebugInformation=true
+    }
+}
+
+project(CrashRpt1403s):build_files{
+    sharedname=CrashRpt1403s
+    pch_header=StdAfx.h
+    pch_source=StdAfx.cpp
+
+    includes += ..\..\include
+    includes += ..\..\reporting\crashsender
+    includes += ..\..\thirdparty\tinyxml
+    includes += ..\..\thirdparty\zlib
+    includes += ..\..\thirdparty\libpng
+    includes += ..\..\thirdparty\wtl
+
+    lit_libs+= version Rpcrt4
+    macros+=STATIC_VERSION
+
+    specific(prop:microsoft){
+        unicode=1
+        dllout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        ModuleDefinitionFile=CrashRpt.def
+        Debug::runtime_library = 1 
+        Release::runtime_library = 0 
+        Release::optimize=0
+        Release::GenerateDebugInformation=true
+    }
+}
+

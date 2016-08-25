@@ -1,0 +1,17 @@
+workspace(CrashRpt1403){
+	./tests
+	./reporting/crashrpt
+	./reporting/crashsender
+	./processing/crashrptprobe
+	./processing/crprober
+	./thirdparty\libpng
+	./thirdparty\minizip
+	./thirdparty\zlib
+	./thirdparty\jpeg
+	./thirdparty\tinyxml
+	./demos\ConsoleDemo
+	./demos\WTLDemo
+	./demos\MFCDemo
+	./thirdparty\libogg
+	./thirdparty\libtheora
+}

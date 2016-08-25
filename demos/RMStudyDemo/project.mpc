@@ -1,0 +1,46 @@
+//project(RMStudyDemo):lmxmfcs,build_files{
+project(RMStudyDemo):mfc,build_files{
+    exename=RMStudyDemo
+    pch_header=stdafx.h
+    pch_source=stdafx.cpp
+
+    includes += ..\..\include
+
+    //after += CrashRpt1403
+    libs += CrashRpt1403
+
+    specific(prop:microsoft){
+        encoding="gb2312"
+        UseOfMFC=2
+        unicode=1
+        exeout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        libpaths+=..\..\$(Platformname)\lib
+        Release::optimize=0
+        Release::GenerateDebugInformation=true
+        Release::debug_format=3
+    }
+}
+
+project(RMStudyDemos):lmxmfcs,build_files{
+    exename=RMStudyDemos
+    pch_header=stdafx.h
+    pch_source=stdafx.cpp
+
+    includes += ..\..\include
+
+    //after += CrashRpt1403s
+    libs += CrashRpt1403s
+
+    specific(prop:microsoft){
+        unicode=1
+        exeout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        libpaths+=..\..\$(Platformname)\lib
+        Release::optimize=0
+        Release::GenerateDebugInformation=true
+        Release::debug_format=3
+        Debug::runtime_library = 1
+        Release::runtime_library = 0
+    }
+}

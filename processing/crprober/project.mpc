@@ -1,0 +1,36 @@
+project(crprober):build_files{
+    exename=crprober
+
+    includes += ..\..\include
+
+    after += CrashRptProbe1403 zlib minizip tinyxml
+    libs += CrashRptProbe1403 zlib minizip tinyxml
+    lit_libs+= dbghelp
+
+    specific(prop:microsoft){
+        unicode=1
+        exeout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        libpaths+=..\..\$(Platformname)\lib
+    }
+}
+
+project(crprobers):build_files{
+    exename=crprobers
+
+    includes += ..\..\include
+
+    after += CrashRptProbe1403s zlibs minizips tinyxmls
+    libs += CrashRptProbe1403s zlibs minizips tinyxmls
+    lit_libs+= dbghelp
+
+    specific(prop:microsoft){
+        unicode=1
+        exeout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        libpaths+=..\..\$(Platformname)\lib
+        Debug::runtime_library = 1
+        Release::runtime_library = 0
+    }
+}
+

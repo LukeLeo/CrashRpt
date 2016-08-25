@@ -1,0 +1,95 @@
+project(CrashSender1403):mfc,build_files{
+    exename=CrashSender1403
+    pch_header=stdafx.h
+    pch_source=stdafx.cpp
+
+    includes += ..\..\include
+    includes += ..\..\thirdparty\libpng
+    includes += ..\..\thirdparty\wtl
+    includes += ..\..\thirdparty\libtheora\include
+    includes += ..\..\thirdparty\libogg\include
+    includes += ..\..\reporting\crashrpt
+    includes += ..\..\thirdparty\tinyxml
+    includes += ..\..\thirdparty\zlib
+    includes += ..\..\thirdparty\minizip
+    includes += ..\..\thirdparty\dbghelp\include
+    includes += ..\..\thirdparty\jpeg
+
+    after += libpng zlib libjpeg minizip tinyxml libtheora libogg
+    libs += libpng zlib libjpeg minizip tinyxml libtheora libogg
+    lit_libs+= version Rpcrt4 psapi wininet Comdlg32 WS2_32 Dnsapi
+
+    macros+=STATIC_VERSION
+
+    specific(prop:microsoft){
+        encoding="gb2312"
+        UseOfMFC=2
+        unicode=1
+        exeout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        libpaths+=..\..\$(Platformname)\lib
+        Debug::exe_ext=d.exe
+    }
+
+    Header_Files{
+        ..\crashrpt\Utility.h
+        *.h
+    }
+    
+    Source_Files{
+        *.cpp
+        ..\crashrpt\SharedMem.cpp
+        ..\crashrpt\Utility.cpp
+        no_pch=1
+        md5.cpp
+        base64.cpp
+    }
+}
+
+project(CrashSender1403s):lmxmfcs,build_files{
+    exename=CrashSender1403s
+    pch_header=stdafx.h
+    pch_source=stdafx.cpp
+
+    includes += ..\..\include
+    includes += ..\..\thirdparty\libpng
+    includes += ..\..\thirdparty\wtl
+    includes += ..\..\thirdparty\libtheora\include
+    includes += ..\..\thirdparty\libogg\include
+    includes += ..\..\reporting\crashrpt
+    includes += ..\..\thirdparty\tinyxml
+    includes += ..\..\thirdparty\zlib
+    includes += ..\..\thirdparty\minizip
+    includes += ..\..\thirdparty\dbghelp\include
+    includes += ..\..\thirdparty\jpeg
+
+    after += libpngs zlibs libjpegs minizips tinyxmls libtheoras liboggs
+    libs += libpngs zlibs libjpegs minizips tinyxmls libtheoras liboggs
+    lit_libs+= version Rpcrt4 psapi wininet Comdlg32 WS2_32 Dnsapi
+
+    specific(prop:microsoft){
+        encoding="gb2312"
+        unicode=1
+        exeout=..\..\$(Platformname)\bin
+        libout=..\..\$(Platformname)\lib
+        libpaths+=..\..\$(Platformname)\lib
+        Debug::exe_ext=d.exe
+        Debug::runtime_library = 1
+        Release::runtime_library = 0
+    }
+
+    Header_Files{
+        ..\crashrpt\Utility.h
+        *.h
+    }
+    
+    Source_Files{
+        *.cpp
+        ..\crashrpt\SharedMem.cpp
+        ..\crashrpt\Utility.cpp
+        no_pch=1
+        md5.cpp
+        base64.cpp
+    }
+}
+

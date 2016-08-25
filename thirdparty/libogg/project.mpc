@@ -1,0 +1,52 @@
+project(libogg):build_files{
+    staticname=libogg
+
+    includes += .\include
+
+    specific(prop:microsoft){
+        encoding="gb2312"
+        type_is_static=1
+        UseOfMFC=0
+        Unicode=1
+        libout=..\..\$(PlatformName)\lib
+        warning_level=4
+        defines+=_CRT_SECURE_NO_DEPRECATE
+        Debug::runtime_library = 3
+        Release::runtime_library = 2
+    }
+
+    Header_Files{
+        .\include\ogg\*.h
+    }
+
+    Source_Files{
+        .\src\*.c
+    }
+}
+
+project(liboggs):build_files{
+    staticname=liboggs
+
+    includes += .\include
+
+    specific(prop:microsoft){
+        encoding="gb2312"
+        type_is_static=1
+        UseOfMFC=0
+        Unicode=1
+        libout=..\..\$(PlatformName)\lib
+        warning_level=4
+        defines+=_CRT_SECURE_NO_DEPRECATE
+        Debug::runtime_library = 1
+        Release::runtime_library = 0
+    }
+
+    Header_Files{
+        .\include\ogg\*.h
+    }
+
+    Source_Files{
+        .\src\*.c
+    }
+}
+
