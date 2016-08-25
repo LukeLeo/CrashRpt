@@ -3,3 +3,11 @@
 *.user
 *.filter
 *~
+*.bak
+*.sln
+*.ncb
+*.suo
+Debug/
+Release/
+Win32/
+x64/

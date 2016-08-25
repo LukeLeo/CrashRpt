@@ -46,7 +46,7 @@ project(CrashSender1403):mfc,build_files{
     }
 }
 
-project(CrashSender1403s):lmxmfcs,build_files{
+project(CrashSender1403s):lukemfcs,build_files{
     exename=CrashSender1403s
     pch_header=stdafx.h
     pch_source=stdafx.cpp

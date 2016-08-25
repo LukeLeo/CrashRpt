@@ -22,7 +22,7 @@ project(WTLDemo):mfc,build_files{
     }
 }
 
-project(WTLDemos):lmxmfcs,build_files{
+project(WTLDemos):lukemfcs,build_files{
     exename=WTLDemos
     pch_header=stdafx.h
     pch_source=stdafx.cpp
